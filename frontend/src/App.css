@@ -542,3 +542,85 @@ main {
     padding: 22px;
   }
 }
+
+/* ================================
+   Appointment Status
+================================ */
+
+.appointment-card {
+  margin-top: 25px;
+  padding: 22px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #94a3b8;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+.appointment-card h3 {
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.appointment-card p {
+  margin-bottom: 8px;
+  color: #64748b;
+}
+
+.appointment-card strong {
+  color: #334155;
+}
+
+
+/* Pending */
+
+.appointment-card.status-pending {
+  border-left-color: #f59e0b;
+}
+
+.status-pending .appointment-status {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+
+/* Confirmed */
+
+.appointment-card.status-confirmed {
+  border-left-color: #16a34a;
+}
+
+.status-confirmed .appointment-status {
+  color: #166534;
+  background: #dcfce7;
+}
+
+
+/* Cancelled */
+
+.appointment-card.status-cancelled {
+  border-left-color: #dc2626;
+}
+
+.status-cancelled .appointment-status {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+
+.appointment-status {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: capitalize;
+}

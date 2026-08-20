@@ -1,10 +1,12 @@
 import { useState } from "react";
+import AppointmentCard from "../components/AppointmentCard";
 
 function BookingPage() {
   const [patientName, setPatientName] = useState("");
   const [doctorName, setDoctorName] = useState("");
   const [date, setDate] = useState("");
   const [timeSlot, setTimeSlot] = useState("");
+  const [status, setStatus] = useState("pending");
 
   return (
     <div className="page-container">
@@ -19,6 +21,7 @@ function BookingPage() {
 
       <div className="booking-card">
         <form className="booking-form">
+
           {/* Patient Name */}
           <div className="form-group">
             <label htmlFor="patientName">
@@ -30,7 +33,9 @@ function BookingPage() {
               type="text"
               placeholder="Enter patient name"
               value={patientName}
-              onChange={(e) => setPatientName(e.target.value)}
+              onChange={(e) =>
+                setPatientName(e.target.value)
+              }
             />
           </div>
 
@@ -45,7 +50,9 @@ function BookingPage() {
               type="text"
               placeholder="Enter doctor name"
               value={doctorName}
-              onChange={(e) => setDoctorName(e.target.value)}
+              onChange={(e) =>
+                setDoctorName(e.target.value)
+              }
             />
           </div>
 
@@ -59,7 +66,9 @@ function BookingPage() {
               id="appointmentDate"
               type="date"
               value={date}
-              onChange={(e) => setDate(e.target.value)}
+              onChange={(e) =>
+                setDate(e.target.value)
+              }
             />
           </div>
 
@@ -74,8 +83,37 @@ function BookingPage() {
               type="text"
               placeholder="10:00 AM - 11:00 AM"
               value={timeSlot}
-              onChange={(e) => setTimeSlot(e.target.value)}
+              onChange={(e) =>
+                setTimeSlot(e.target.value)
+              }
             />
+          </div>
+
+          {/* Status */}
+          <div className="form-group">
+            <label htmlFor="status">
+              Appointment Status
+            </label>
+
+            <select
+              id="status"
+              value={status}
+              onChange={(e) =>
+                setStatus(e.target.value)
+              }
+            >
+              <option value="pending">
+                Pending
+              </option>
+
+              <option value="confirmed">
+                Confirmed
+              </option>
+
+              <option value="cancelled">
+                Cancelled
+              </option>
+            </select>
           </div>
 
           <button
@@ -86,30 +124,14 @@ function BookingPage() {
           </button>
         </form>
 
-        {/* useState Output */}
-        <div className="appointment-card" style={{ marginTop: "25px" }}>
-          <h3>Current Appointment Details</h3>
-
-          <p>
-            <strong>Patient:</strong>{" "}
-            {patientName || "Not entered"}
-          </p>
-
-          <p>
-            <strong>Doctor:</strong>{" "}
-            {doctorName || "Not entered"}
-          </p>
-
-          <p>
-            <strong>Date:</strong>{" "}
-            {date || "Not selected"}
-          </p>
-
-          <p>
-            <strong>Time:</strong>{" "}
-            {timeSlot || "Not entered"}
-          </p>
-        </div>
+        {/* Appointment Card */}
+        <AppointmentCard
+          patientName={patientName}
+          doctorName={doctorName}
+          date={date}
+          timeSlot={timeSlot}
+          status={status}
+        />
       </div>
     </div>
   );
