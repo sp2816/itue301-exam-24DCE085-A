@@ -17,12 +17,21 @@ ITUE301 - Advanced Web Development Frameworks
 
 ## Frontend
 
-Setup instructions will be added after implementation.
+cd frontend
+npm install
+npm run dev
 
 ## Backend
 
-Setup instructions will be added after implementation.
+cd backend
+npm install
+npm start
 
 ## MongoDB
 
-MongoDB connection is configured using environment variables.
+Mongodb compass
+
+## env variables required
+
+PORT
+MONGOURI
