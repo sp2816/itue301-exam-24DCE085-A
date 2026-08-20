@@ -5,41 +5,77 @@ function BookingPage() {
   const [doctorName, setDoctorName] = useState("");
 
   return (
-    <div>
-      <h1>Book Appointment</h1>
+    <div className="page-container">
+      <div className="page-header">
+        <h1>Book an Appointment</h1>
 
-      <form>
-        <div>
-          <label>Patient Name</label>
-          <input
-            type="text"
-            value={patientName}
-            onChange={(e) => setPatientName(e.target.value)}
-          />
-        </div>
+        <p>
+          Fill in the details below to schedule your hospital
+          appointment.
+        </p>
+      </div>
 
-        <div>
-          <label>Doctor Name</label>
-          <input
-            type="text"
-            value={doctorName}
-            onChange={(e) => setDoctorName(e.target.value)}
-          />
-        </div>
+      <div className="booking-card">
+        <form className="booking-form">
+          <div className="form-group">
+            <label htmlFor="patientName">
+              Patient Name
+            </label>
 
-        <div>
-          <label>Date</label>
-          <input type="date" />
-        </div>
+            <input
+              id="patientName"
+              type="text"
+              placeholder="Enter patient name"
+              value={patientName}
+              onChange={(e) => setPatientName(e.target.value)}
+            />
+          </div>
 
-        <div>
-          <label>Time Slot</label>
-          <input type="text" placeholder="10:00 AM - 11:00 AM" />
-        </div>
-      </form>
+          <div className="form-group">
+            <label htmlFor="doctorName">
+              Doctor Name
+            </label>
 
-      <p>Patient: {patientName}</p>
-      <p>Doctor: {doctorName}</p>
+            <input
+              id="doctorName"
+              type="text"
+              placeholder="Enter doctor name"
+              value={doctorName}
+              onChange={(e) => setDoctorName(e.target.value)}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="appointmentDate">
+              Date
+            </label>
+
+            <input
+              id="appointmentDate"
+              type="date"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="timeSlot">
+              Time Slot
+            </label>
+
+            <input
+              id="timeSlot"
+              type="text"
+              placeholder="10:00 AM - 11:00 AM"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="booking-button"
+          >
+            Book Appointment
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

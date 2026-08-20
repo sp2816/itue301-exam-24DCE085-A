@@ -33,37 +33,66 @@ function DoctorsPage() {
   }, []);
 
   if (loading) {
-    return <h2>Loading doctors...</h2>;
+    return (
+      <div className="page-container">
+        <div className="status-message">
+          Loading doctors...
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <h2>Error: {error}</h2>;
+    return (
+      <div className="page-container">
+        <div className="error-message">
+          Error: {error}
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>Doctors</h1>
+    <div className="page-container">
+      <div className="page-header">
+        <h1>Our Doctors</h1>
+
+        <p>
+          Meet our experienced healthcare professionals and check
+          their current availability.
+        </p>
+      </div>
 
       {data.length === 0 ? (
-        <p>No doctors available.</p>
+        <div className="status-message">
+          No doctors available.
+        </div>
       ) : (
-        data.map((doctor) => (
-          <div key={doctor.id}>
-            <h2>{doctor.name}</h2>
+        <div className="doctors-grid">
+          {data.map((doctor) => (
+            <div className="doctor-card" key={doctor.id}>
+              
 
-            <p>
-              <strong>Specialisation:</strong>{" "}
-              {doctor.specialisation}
-            </p>
+              <h2>{doctor.name}</h2>
 
-            <p>
-              <strong>Availability:</strong>{" "}
-              {doctor.available ? "Available" : "Not Available"}
-            </p>
+              <p className="doctor-specialisation">
+                {doctor.specialisation}
+              </p>
 
-            <hr />
-          </div>
-        ))
+              <span
+                className={`availability ${
+                  doctor.available
+                    ? "available"
+                    : "unavailable"
+                }`}
+              >
+                {doctor.available
+                  ? "● Available"
+                  : "● Not Available"}
+              </span>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

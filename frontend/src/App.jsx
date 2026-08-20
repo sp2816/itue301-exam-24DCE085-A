@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import DoctorsPage from "./pages/DoctorsPage";
 import BookingPage from "./pages/BookingPage";
 
+import "./App.css";
+
 function App() {
   return (
     <BrowserRouter>
